@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M500.5,319.9m-248.2,0a248.2,248.2 0,1 0,496.4 0,248.2 248.2,0 1,0 -496.4,0Z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M288.6,680.1l-0,-0 -3.3,0C179.8,680.1 94,596.2 92.2,492.1L92.2,488.6c0,-105.8 86.5,-191.5 193.1,-191.5 97.3,0 177.8,71.3 191.2,164.1h4.2v-1.3c0,-120.4 97.4,-218.2 218.3,-220.1l3.7,-0c122.6,0 222,98.6 222,220.2s-99.4,220.2 -222,220.2l2.5,-0 0,0H288.6z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M236.3,720.1m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M372.4,720.1m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M508.5,720.1m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M644.6,720.1m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M300.3,832.2m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+    <path
+        android:fillColor="?android:textColorSecondary"
+        android:pathData="M480.4,832.2c6.6,0 12,5.4 12,12v27.2l23.6,-13.6a12,12 0,0 1,12 20.8l-23.6,13.6 23.6,13.6a12,12 0,1 1,-12 20.8l-23.6,-13.6v27.2a12,12 0,0 1,-24 0v-27.2l-23.6,13.6a12,12 0,0 1,-12 -20.8l23.6,-13.6 -23.6,-13.6a12,12 0,1 1,12 -20.8l23.6,13.6v-27.2c0,-6.6 5.4,-12 12,-12z" />
+    <path
+        android:fillColor="?android:colorSecondary"
+        android:pathData="M564.5,832.2m36,0l0,0q36,0 36,36l0,0q0,36 -36,36l0,0q-36,0 -36,-36l0,0q0,-36 36,-36Z" />
+</vector>

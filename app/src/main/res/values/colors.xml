@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bgLightTheme">#FFFFFF</color>
+    <color name="bgDarkTheme">#28284D</color>
+
+    <color name="textColorLightTheme">#441000</color>
+    <color name="textColorLightThemeAlt">#B2A280</color>
+
+    <color name="textColorDarkTheme">#DFDFDF</color>
+    <color name="textColorDarkThemeAlt">#8C8CC6</color>
+
+    <color name="accentColorLightTheme">#FFC224</color>
+    <color name="accentColorDarkTheme">#7171D0</color>
+
+    <color name="surfaceColorLightTheme">#FAF6ED</color><!--FBFAF8-->
+    <color name="surfaceColorDarkTheme">#3D3D75</color>
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_r24_top"
+        android:backgroundTint="?backgroundColor"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_r16_outline"
+            android:drawablePadding="8dp"
+            android:padding="16dp"
+            android:text="@string/as_previsoes_do_tempo_sao_uma_estimativa"
+            android:textAlignment="center"
+            android:textColor="?android:textColorPrimaryInverse"
+            android:textSize="12sp"
+            app:drawableTint="?android:colorAccent"
+            app:drawableTopCompat="@drawable/round_info_outline_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24sp"
+            android:text="@string/previsao_do_tempo_de_hora_em_hora"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_hourly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_r16" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24sp"
+            android:text="@string/previsao_para_7_dias"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_daily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_r16" />
+
+        <Button
+            android:id="@+id/btn_fechar"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginVertical="24sp"
+            android:text="@string/fechar"
+            app:icon="@drawable/round_close_24" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

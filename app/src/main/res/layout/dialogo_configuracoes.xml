@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_r24_top"
+    android:backgroundTint="?backgroundColor"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_r16_outline"
+        android:drawablePadding="8dp"
+        android:padding="16dp"
+        android:text="@string/voce_recebera_uma_notificacao"
+        android:textAlignment="center"
+        android:textColor="?android:textColorPrimaryInverse"
+        android:textSize="12sp"
+        app:drawableTint="?android:colorAccent"
+        app:drawableTopCompat="@drawable/round_info_outline_24" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_notificacoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp"
+        android:background="@drawable/rounded_r16_outline"
+        android:checked="true"
+        android:padding="16dp"
+        android:text="@string/notificacoes" />
+
+    <TextView
+        android:id="@+id/tv_termos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_r16_outline"
+        android:padding="16dp"
+        android:text="@string/termos_e_condi_es"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/round_keyboard_arrow_right_24"
+        app:drawableTint="?android:colorAccent" />
+
+    <TextView
+        android:id="@+id/tv_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp"
+        android:background="@drawable/rounded_r16_outline"
+        android:padding="16dp"
+        android:text="@string/open_meteo_api"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/round_keyboard_arrow_right_24"
+        app:drawableTint="?android:colorAccent" />
+
+    <TextView
+        android:id="@+id/tv_versao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_concluido"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="24dp"
+        android:text="@string/salvar_e_fechar" />
+</LinearLayout>

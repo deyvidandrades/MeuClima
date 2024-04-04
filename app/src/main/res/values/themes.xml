@@ -1,0 +1,58 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MeuClima" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!--
+        <item name="colorPrimary">@color/accentColorLightTheme</item>
+        <item name="colorOnPrimary">@color/textColorLightTheme</item>
+        <item name="colorPrimaryContainer">@color/accentColorLightTheme</item>
+        <item name="colorOnPrimaryContainer">@color/textColorLightTheme</item>
+
+        <item name="colorSecondary">@color/textColorLightTheme</item>
+        <item name="colorOnSecondary">@color/bgLightTheme</item>
+        <item name="colorSecondaryContainer">@color/textColorLightTheme</item>
+        <item name="colorOnSecondaryContainer">@color/bgLightTheme</item>
+
+        <item name="colorTertiary">@color/bgLightTheme</item>
+        <item name="colorOnTertiary">@color/textColorLightTheme</item>
+        <item name="colorTertiaryContainer">@color/bgLightTheme</item>
+        <item name="colorOnTertiaryContainer">@color/textColorLightTheme</item>
+
+        <item name="colorError">@color/textColorLightTheme</item>
+        <item name="colorOnError">@color/surfaceColorLightTheme</item>
+
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+
+        <item name="backgroundColor">@color/bgLightTheme</item>
+        <item name="colorOnBackground">@color/textColorLightTheme</item>
+
+        <item name="colorSurface">@color/surfaceColorLightTheme</item>
+        <item name="colorOnSurface">@color/textColorLightTheme</item>
+        <item name="colorSurfaceVariant">@color/surfaceColorLightTheme</item>
+        <item name="colorOnSurfaceVariant">@color/textColorLightTheme</item>
+        -->
+
+        <item name="android:colorBackground">@color/bgLightTheme</item>
+        <item name="backgroundColor">@color/bgLightTheme</item>
+
+        <item name="android:colorSecondary">@color/surfaceColorLightTheme</item>
+
+        <item name="colorPrimary">@color/accentColorLightTheme</item>
+        <item name="colorAccent">@color/accentColorLightTheme</item>
+
+        <item name="android:statusBarColor">@color/bgLightTheme</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/bgLightTheme</item>
+
+        <item name="android:textColor">@color/textColorLightTheme</item>
+        <item name="android:textColorPrimary">@color/textColorLightTheme</item>
+        <item name="android:textColorSecondary">@color/textColorLightThemeAlt</item>
+        <item name="android:textColorPrimaryInverse">@color/textColorLightTheme</item>
+
+    </style>
+
+    <style name="Theme.MeuClima" parent="Base.Theme.MeuClima" />
+
+</resources>

@@ -1,0 +1,49 @@
+package com.deyvidandrades.meuclima.dialogos
+
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.deyvidandrades.meuclima.R
+import com.deyvidandrades.meuclima.adaptadores.AdaptadorForecastDaily
+import com.deyvidandrades.meuclima.adaptadores.AdaptadorForecastHourly
+import com.deyvidandrades.meuclima.interfaces.OnItemClickListener
+import com.deyvidandrades.meuclima.objetos.ForecastDaily
+import com.deyvidandrades.meuclima.objetos.ForecastHourly
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
+class DialogoForecast : BottomSheetDialogFragment(), OnItemClickListener {
+    var arrayDailyForecast = ArrayList<ForecastDaily>()
+    var arrayHourlyForecast = ArrayList<ForecastHourly>()
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val dialogoView = inflater.inflate(R.layout.dialogo_forecast, container, false)
+
+        val btnFechar: Button = dialogoView.findViewById(R.id.btn_fechar)
+
+        //Recycler Daily
+        val recyclerDaily: RecyclerView = dialogoView.findViewById(R.id.recycler_daily)
+        recyclerDaily.setHasFixedSize(true)
+        recyclerDaily.adapter = AdaptadorForecastDaily(requireContext(), arrayDailyForecast, this)
+        recyclerDaily.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        //Recycler Hourly
+        val recyclerHourly: RecyclerView = dialogoView.findViewById(R.id.recycler_hourly)
+        recyclerHourly.setHasFixedSize(true)
+        recyclerHourly.adapter = AdaptadorForecastHourly(requireContext(), arrayHourlyForecast, this)
+        recyclerHourly.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        btnFechar.setOnClickListener {
+            dismiss()
+        }
+
+        return dialogoView
+    }
+
+    override fun onItemClick(postagemId: String) {}
+}

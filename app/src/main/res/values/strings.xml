@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Meu Clima</string>
+    <string name="notificacao_do_clima">Notificação do clima</string>
+    <string name="vento">Vento (Km/h)</string>
+    <string name="humidade">Humidade</string>
+    <string name="precipitacao">Precipitação</string>
+    <string name="c">ºc</string>
+    <string name="imagem_que_representa_o_clima_atual">Imagem que representa o clima atual</string>
+    <string name="notificacoes">Notificações</string>
+    <string name="voce_recebera_uma_notificacao">Quando as notificações estão ativas, você receberá a previsão do tempo e alertas climáticos durante o dia.</string>
+    <string name="salvar_e_fechar">Salvar e fechar</string>
+    <string name="termos_e_condi_es">Termos e Condições</string>
+    <string name="as_previsoes_do_tempo_sao_uma_estimativa">As condições climáticas podem ser diferentes das previstas.</string>
+    <string name="veja_a_previsao_completa">Veja a previsão completa</string>
+    <string name="fechar">Fechar</string>
+    <string name="open_meteo_api">Open Meteo API</string>
+    <string name="previsao_para_7_dias">Previsão para 7 dias</string>
+    <string name="previsao_do_tempo_de_hora_em_hora">Previsão do tempo de hora em hora</string>
+</resources>

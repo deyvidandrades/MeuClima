@@ -1,0 +1,22 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MeuClima" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/bgDarkTheme</item>
+        <item name="backgroundColor">@color/bgDarkTheme</item>
+
+        <item name="android:colorSecondary">@color/surfaceColorDarkTheme</item>
+
+        <item name="colorPrimary">@color/accentColorDarkTheme</item>
+        <item name="colorAccent">@color/accentColorDarkTheme</item>
+
+        <item name="android:statusBarColor">@color/bgDarkTheme</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/bgDarkTheme</item>
+
+        <item name="android:textColor">@color/textColorDarkTheme</item>
+        <item name="android:textColorPrimary">@color/textColorDarkTheme</item>
+        <item name="android:textColorSecondary">@color/textColorDarkThemeAlt</item>
+        <item name="android:textColorPrimaryInverse">@color/textColorDarkTheme</item>
+
+    </style>
+</resources>

@@ -10,17 +10,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
-import com.deyvidandrades.meuclima.interfaces.OnItemClickListener
 import com.deyvidandrades.meuclima.objetos.ForecastHourly
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class AdaptadorForecastHourly(context: Context, arrayList: ArrayList<ForecastHourly>, listener: OnItemClickListener) :
+class AdaptadorForecastHourly(context: Context, arrayList: ArrayList<ForecastHourly>) :
     RecyclerView.Adapter<AdaptadorForecastHourly.ViewHolder>() {
 
     private val context: Context
-    private val listener: OnItemClickListener
     private var arrayList: ArrayList<ForecastHourly> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -68,6 +66,5 @@ class AdaptadorForecastHourly(context: Context, arrayList: ArrayList<ForecastHou
     init {
         this.context = context
         this.arrayList = arrayList
-        this.listener = listener
     }
 }

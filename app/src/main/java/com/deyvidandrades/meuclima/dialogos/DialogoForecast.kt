@@ -11,12 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.adaptadores.AdaptadorForecastDaily
 import com.deyvidandrades.meuclima.adaptadores.AdaptadorForecastHourly
-import com.deyvidandrades.meuclima.interfaces.OnItemClickListener
 import com.deyvidandrades.meuclima.objetos.ForecastDaily
 import com.deyvidandrades.meuclima.objetos.ForecastHourly
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class DialogoForecast : BottomSheetDialogFragment(), OnItemClickListener {
+class DialogoForecast : BottomSheetDialogFragment() {
     var arrayDailyForecast = ArrayList<ForecastDaily>()
     var arrayHourlyForecast = ArrayList<ForecastHourly>()
 
@@ -29,13 +28,13 @@ class DialogoForecast : BottomSheetDialogFragment(), OnItemClickListener {
         //Recycler Daily
         val recyclerDaily: RecyclerView = dialogoView.findViewById(R.id.recycler_daily)
         recyclerDaily.setHasFixedSize(true)
-        recyclerDaily.adapter = AdaptadorForecastDaily(requireContext(), arrayDailyForecast, this)
+        recyclerDaily.adapter = AdaptadorForecastDaily(requireContext(), arrayDailyForecast)
         recyclerDaily.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         //Recycler Hourly
         val recyclerHourly: RecyclerView = dialogoView.findViewById(R.id.recycler_hourly)
         recyclerHourly.setHasFixedSize(true)
-        recyclerHourly.adapter = AdaptadorForecastHourly(requireContext(), arrayHourlyForecast, this)
+        recyclerHourly.adapter = AdaptadorForecastHourly(requireContext(), arrayHourlyForecast)
         recyclerHourly.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         btnFechar.setOnClickListener {
@@ -44,6 +43,4 @@ class DialogoForecast : BottomSheetDialogFragment(), OnItemClickListener {
 
         return dialogoView
     }
-
-    override fun onItemClick(postagemId: String) {}
 }

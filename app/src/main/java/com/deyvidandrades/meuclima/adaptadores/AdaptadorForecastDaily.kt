@@ -10,17 +10,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
-import com.deyvidandrades.meuclima.interfaces.OnItemClickListener
 import com.deyvidandrades.meuclima.objetos.ForecastDaily
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class AdaptadorForecastDaily(context: Context, arrayList: ArrayList<ForecastDaily>, listener: OnItemClickListener) :
+class AdaptadorForecastDaily(context: Context, arrayList: ArrayList<ForecastDaily>) :
     RecyclerView.Adapter<AdaptadorForecastDaily.ViewHolder>() {
 
     private val context: Context
-    private val listener: OnItemClickListener
     private var arrayList: ArrayList<ForecastDaily> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -69,6 +67,5 @@ class AdaptadorForecastDaily(context: Context, arrayList: ArrayList<ForecastDail
     init {
         this.context = context
         this.arrayList = arrayList
-        this.listener = listener
     }
 }

@@ -9,7 +9,7 @@
         android:translateX="277.29968"
         android:translateY="279.4529">
         <path
-            android:fillColor="@color/accentColorLightTheme"
+            android:fillColor="@color/surfaceColorLightTheme"
             android:pathData="M508.8,454m-259.5,0a259.5,259.5 0,1 0,518.9 0,259.5 259.5,0 1,0 -518.9,0Z" />
         <path
             android:fillColor="@color/surfaceColorLightTheme"

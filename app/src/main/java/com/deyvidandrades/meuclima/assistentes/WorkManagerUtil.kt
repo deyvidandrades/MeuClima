@@ -11,7 +11,7 @@ object WorkManagerUtil {
     enum class Tipo { NOTIFICACAO }
 
     fun iniciarWorker(context: Context, workerId: Tipo) {
-        val workRequest = PeriodicWorkRequestBuilder<NotificacoesWorker>(8, TimeUnit.HOURS).build()
+        val workRequest = PeriodicWorkRequestBuilder<NotificacoesWorker>(6, TimeUnit.HOURS).build()
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             workerId.name.lowercase(),

@@ -16,6 +16,8 @@ object ForecastDataParser {
         return URL("""https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,rain,showers,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,precipitation,rain,weather_code,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min&timeformat=unixtime&timezone=auto&forecast_hours=24""")
     }
 
+    fun getAlertCodes() = arrayListOf(65, 66, 67, 75, 82, 86, 95, 96, 99)
+
     fun getCode(code: Int): String {
         return when (code) {
             0 -> "Céu limpo"

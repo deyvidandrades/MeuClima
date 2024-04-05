@@ -16,4 +16,6 @@
     <string name="open_meteo_api">Open Meteo API</string>
     <string name="previsao_para_7_dias">Previsão para 7 dias</string>
     <string name="previsao_do_tempo_de_hora_em_hora">Previsão do tempo de hora em hora</string>
+    <string name="alerta_de">Alerta de %1$s</string>
+    <string name="esperada_s_horas">%1$s esperada às %2$s horas!</string>
 </resources>

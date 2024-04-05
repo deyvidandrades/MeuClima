@@ -8,13 +8,13 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.activities.MainActivity
-import kotlinx.coroutines.runBlocking
 
 object NotificacoesUtil {
     private const val CHANNEL_ID = "meu_clima_1"
@@ -31,55 +31,40 @@ object NotificacoesUtil {
         notificationManager.createNotificationChannel(channel)
     }
 
-    fun enviarNotificacao(context: Context) {
-        Persistencia.getInstance(context)
+    fun enviarNotificacao(context: Context, titulo: String, descricao: String, icon: Drawable) {
 
-        var result: String
-        runBlocking {
-            result = RequestManager.fazerRequisicao(
-                ForecastDataParser.getApiUrl(
-                    Persistencia.latitude,
-                    Persistencia.longitude
+        //CRIANDO A NOTIFICACAO
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setAutoCancel(true)
+            .setColorized(true)
+            .setShowWhen(true)
+            .setColor(context.getColor(if (Persistencia.isDarkTheme) R.color.accentColorDarkTheme else R.color.accentColorLightTheme))
+            .setCategory(Notification.CATEGORY_MESSAGE)
+            .setContentTitle(titulo)
+            .setContentText(descricao)
+            .setSmallIcon(R.drawable.round_cloud_queue_24)
+            .setLargeIcon(icon.toBitmap())
+            .setContentIntent(
+                PendingIntent.getActivity(
+                    context,
+                    0,
+                    Intent(context, MainActivity::class.java).apply {
+                        //flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        // flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    },
+                    PendingIntent.FLAG_IMMUTABLE
                 )
             )
-        }
 
-        ForecastDataParser.getForecast(result) { current, _, _ ->
-            //CRIANDO A NOTIFICACAO todo
-            val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                .setAutoCancel(true)
-                .setColorized(true)
-                .setShowWhen(true)
-                .setColor(context.getColor(if (Persistencia.isDarkTheme) R.color.accentColorDarkTheme else R.color.accentColorLightTheme))
-                .setCategory(Notification.CATEGORY_MESSAGE)
-                .setContentTitle("${current.getCode()}, ${current.getTemperatura()}º")
-                .setContentText(context.getString(R.string.veja_a_previsao_completa))
-                .setSmallIcon(R.drawable.round_cloud_queue_24)
-                .setLargeIcon(
-                    ForecastDataParser.getWeatherDrawable(context, current.getCodeInt(), current.isDia()).toBitmap()
-                )
-                .setContentIntent(
-                    PendingIntent.getActivity(
-                        context,
-                        0,
-                        Intent(context, MainActivity::class.java).apply {
-                            //flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            // flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        },
-                        PendingIntent.FLAG_IMMUTABLE
-                    )
-                )
-
-            with(NotificationManagerCompat.from(context)) {
-                if (ActivityCompat.checkSelfPermission(
-                        context,
-                        Manifest.permission.POST_NOTIFICATIONS
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return@with
-                }
-                notify(NOTIFICATION_ID, builder.build())
+        with(NotificationManagerCompat.from(context)) {
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                return@with
             }
+            notify(NOTIFICATION_ID, builder.build())
         }
     }
 }

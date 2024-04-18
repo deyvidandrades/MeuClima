@@ -8,6 +8,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -18,6 +19,7 @@ import com.deyvidandrades.meuclima.activities.MainActivity
 
 object NotificacoesUtil {
     private const val CHANNEL_ID = "meu_clima_1"
+
     enum class Tipo { PREVISAO, ALERTA }
 
     fun criarCanalDeNotificacoes(context: Context) {
@@ -43,7 +45,7 @@ object NotificacoesUtil {
             .setContentTitle(titulo)
             .setContentText(descricao)
             .setSmallIcon(R.drawable.round_cloud_queue_24)
-            .setLargeIcon(icon.toBitmap())
+            .setLargeIcon(icon.toBitmap(config = Bitmap.Config.ARGB_8888))
             .setContentIntent(
                 PendingIntent.getActivity(
                     context,

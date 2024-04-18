@@ -47,7 +47,7 @@
             android:backgroundTint="?android:textColor"
             android:contentDescription="@string/imagem_que_representa_o_clima_atual"
             android:padding="8dp"
-            android:src="@drawable/rainstorm_svgrepo_com"
+            android:src="@drawable/clima_tempestade"
             android:textSize="24sp"
             android:textStyle="bold" />
 

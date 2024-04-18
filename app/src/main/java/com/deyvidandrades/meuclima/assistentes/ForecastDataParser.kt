@@ -52,22 +52,22 @@ object ForecastDataParser {
     fun getWeatherDrawable(context: Context, code: Int, isDia: Boolean): Drawable {
         return AppCompatResources.getDrawable(
             context, when (code) {
-                0 -> if (isDia) R.drawable.clear_svgrepo_com else R.drawable.sunny_night_svgrepo_com
-                1, 2 -> if (isDia) R.drawable.partly_cloudy_svgrepo_com else R.drawable.cloudy_night_svgrepo_com
-                3 -> R.drawable.negative_svgrepo_com
-                45, 48 -> if (isDia) R.drawable.fog_svgrepo_com else R.drawable.night_fog_svgrepo_com
-                51, 53, 55, 56, 57 -> R.drawable.light_rain_svgrepo_com
-                61 -> R.drawable.light_rain_svgrepo_com
-                63 -> R.drawable.moderate_rain_svgrepo_com
-                65, 66, 67 -> R.drawable.heavy_rain_svgrepo_com
-                71, 73, 75 -> R.drawable.blizzard_svgrepo_com
-                77 -> R.drawable.heavy_snow_svgrepo_com
-                80, 81 -> if (isDia) R.drawable.shower_svgrepo_com else R.drawable.night_showers_svgrepo_com
-                82 -> R.drawable.rainstorm_svgrepo_com
-                85, 86 -> if (isDia) R.drawable.snow_showers_svgrepo_com else R.drawable.snow_showers_at_night_svgrepo_com
-                95 -> R.drawable.thunderstorm_svgrepo_com
-                96, 99 -> R.drawable.blizzard_svgrepo_com
-                else -> R.drawable.no_data_svgrepo_com
+                0 -> if (isDia) R.drawable.clima_limpo_dia else R.drawable.clima_limpo_noite
+                1, 2 -> if (isDia) R.drawable.clima_nublado_dia else R.drawable.clima_nublado_noite
+                3 -> R.drawable.clima_nublado
+                45, 48 -> if (isDia) R.drawable.clima_neblina else R.drawable.clima_neblina_noite
+                51, 53, 55, 56, 57 -> R.drawable.clima_chuva_fraca
+                61 -> R.drawable.clima_chuva_fraca
+                63 -> R.drawable.clima_chuva_moderada
+                65, 66, 67 -> R.drawable.clima_chuva_forte
+                71, 73, 75 -> R.drawable.clima_neve
+                77 -> R.drawable.clima_neve_forte
+                80, 81 -> if (isDia) R.drawable.clima_pancada_dia else R.drawable.clima_pancada_noite
+                82 -> R.drawable.clima_tempestade
+                85, 86 -> if (isDia) R.drawable.clima_pancada_neve_dia else R.drawable.clima_pancada_neve_noite
+                95 -> R.drawable.clima_tempestade_raio
+                96, 99 -> R.drawable.clima_neve
+                else -> R.drawable.clima_sem_dados
             }
         )!!
     }

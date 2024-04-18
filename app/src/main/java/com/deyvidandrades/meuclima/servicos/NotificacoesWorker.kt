@@ -31,7 +31,8 @@ class NotificacoesWorker(appContext: Context, workerParams: WorkerParameters) : 
                     applicationContext,
                     "${current.getCode()}, ${current.getTemperatura()}º",
                     applicationContext.getString(R.string.veja_a_previsao_completa),
-                    ForecastDataParser.getWeatherDrawable(applicationContext, current.getCodeInt(), current.isDia())
+                    ForecastDataParser.getWeatherDrawable(applicationContext, current.getCodeInt(), current.isDia()),
+                    NotificacoesUtil.Tipo.PREVISAO
                 )
 
                 for (item in hourly)
@@ -48,7 +49,8 @@ class NotificacoesWorker(appContext: Context, workerParams: WorkerParameters) : 
                             applicationContext,
                             applicationContext.getString(R.string.alerta_de, evento),
                             applicationContext.getString(R.string.esperada_s_horas, evento, horario),
-                            icone
+                            icone,
+                            NotificacoesUtil.Tipo.ALERTA
                         )
                         break
                     }

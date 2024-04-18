@@ -18,7 +18,7 @@ import com.deyvidandrades.meuclima.activities.MainActivity
 
 object NotificacoesUtil {
     private const val CHANNEL_ID = "meu_clima_1"
-    private const val NOTIFICATION_ID = 5
+    enum class Tipo { PREVISAO, ALERTA }
 
     fun criarCanalDeNotificacoes(context: Context) {
 
@@ -31,7 +31,7 @@ object NotificacoesUtil {
         notificationManager.createNotificationChannel(channel)
     }
 
-    fun enviarNotificacao(context: Context, titulo: String, descricao: String, icon: Drawable) {
+    fun enviarNotificacao(context: Context, titulo: String, descricao: String, icon: Drawable, tipo: Tipo) {
 
         //CRIANDO A NOTIFICACAO
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
@@ -64,7 +64,7 @@ object NotificacoesUtil {
             ) {
                 return@with
             }
-            notify(NOTIFICATION_ID, builder.build())
+            notify(tipo.ordinal, builder.build())
         }
     }
 }

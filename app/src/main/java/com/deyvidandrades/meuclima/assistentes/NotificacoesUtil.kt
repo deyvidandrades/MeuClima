@@ -34,6 +34,7 @@ object NotificacoesUtil {
     }
 
     fun enviarNotificacao(context: Context, titulo: String, descricao: String, icon: Drawable, tipo: Tipo) {
+        Persistencia.getInstance(context)
 
         //CRIANDO A NOTIFICACAO
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)

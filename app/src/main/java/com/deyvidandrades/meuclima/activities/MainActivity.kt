@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.deyvidandrades.meuclima.R
+import com.deyvidandrades.meuclima.assistentes.DWS
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
 import com.deyvidandrades.meuclima.assistentes.NotificacoesUtil
 import com.deyvidandrades.meuclima.assistentes.Persistencia
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvPrecipitacao: TextView
     private lateinit var tvHumidade: TextView
     private lateinit var tvVento: TextView
+    private lateinit var tvCidade: TextView
     private lateinit var ivClima: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         tvDescricao = findViewById(R.id.tv_descricao)
         tvPrecipitacao = findViewById(R.id.tv_precipitacao)
         tvHumidade = findViewById(R.id.tv_humidade)
+        tvCidade = findViewById(R.id.tv_cidade)
         tvVento = findViewById(R.id.tv_vento)
         ivClima = findViewById(R.id.iv_clima)
 
@@ -189,6 +193,14 @@ class MainActivity : AppCompatActivity() {
     private fun atualizarUI(latitude: Double, longitude: Double) {
         localizacao = Pair(latitude, longitude)
 
+        val geocoder = Geocoder(this, Locale.getDefault())
+        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+
+        var cidade = ""
+        if (!addresses.isNullOrEmpty() && addresses[0].subAdminArea != null)
+            //cidade = "${addresses[0].subAdminArea}, ${addresses[0].adminArea}"
+            cidade = addresses[0].subAdminArea
+
         var result: String
         runBlocking {
             result = RequestManager.fazerRequisicao(ForecastDataParser.getApiUrl(latitude, longitude))
@@ -206,6 +218,7 @@ class MainActivity : AppCompatActivity() {
             tvTemperatura.text = current.getTemperatura().toString()
             tvData.text = "$dayOfWeek, $hourMinute"
             tvDescricao.text = current.getCode()
+            tvCidade.text = cidade
             tvHumidade.text = "${current.getHumidade()}%"
             tvPrecipitacao.text = "${current.getPrecipitacao()}%"
             tvVento.text = current.getVento().toString()

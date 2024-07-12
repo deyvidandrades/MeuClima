@@ -13,9 +13,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.deyvidandrades.meuclima.R
-import com.deyvidandrades.meuclima.assistentes.DWS
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
 import com.deyvidandrades.meuclima.assistentes.NotificacoesUtil
 import com.deyvidandrades.meuclima.assistentes.Persistencia
@@ -29,7 +29,9 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.materialswitch.MaterialSwitch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -189,6 +191,7 @@ class MainActivity : AppCompatActivity() {
         NotificacoesUtil.criarCanalDeNotificacoes(this)
     }
 
+    @Suppress("DEPRECATION")
     @SuppressLint("SetTextI18n")
     private fun atualizarUI(latitude: Double, longitude: Double) {
         localizacao = Pair(latitude, longitude)
@@ -198,32 +201,37 @@ class MainActivity : AppCompatActivity() {
 
         var cidade = ""
         if (!addresses.isNullOrEmpty() && addresses[0].subAdminArea != null)
-            //cidade = "${addresses[0].subAdminArea}, ${addresses[0].adminArea}"
             cidade = addresses[0].subAdminArea
 
         var result: String
-        runBlocking {
-            result = RequestManager.fazerRequisicao(ForecastDataParser.getApiUrl(latitude, longitude))
-        }
+        lifecycleScope.launch(Dispatchers.IO) {
+            //runBlocking {
+            result =
+                RequestManager.fazerRequisicao(ForecastDataParser.getApiUrl(latitude, longitude))
 
-        ForecastDataParser.getForecast(result) { current, hourly, week ->
-            arrayHorasDia = hourly
-            arrayProximosDias = week
+            withContext(Dispatchers.Main) {
+                ForecastDataParser.getForecast(result) { current, hourly, week ->
+                    arrayHorasDia = hourly
+                    arrayProximosDias = week
 
-            val calendar = Calendar.getInstance()
-            val dayOfWeek =
-                SimpleDateFormat("EEEE", Locale.getDefault()).format(calendar.time).replaceFirstChar { it.uppercase() }
-            val hourMinute = SimpleDateFormat("HH:mm", Locale.getDefault()).format(calendar.time)
+                    val calendar = Calendar.getInstance()
+                    val dayOfWeek = SimpleDateFormat("EEEE", Locale.getDefault()).format(calendar.time)
+                        .replaceFirstChar { it.uppercase() }
+                    val hourMinute = SimpleDateFormat("HH:mm", Locale.getDefault()).format(calendar.time)
 
-            tvTemperatura.text = current.getTemperatura().toString()
-            tvData.text = "$dayOfWeek, $hourMinute"
-            tvDescricao.text = current.getCode()
-            tvCidade.text = cidade
-            tvHumidade.text = "${current.getHumidade()}%"
-            tvPrecipitacao.text = "${current.getPrecipitacao()}%"
-            tvVento.text = current.getVento().toString()
+                    tvTemperatura.text = current.getTemperatura().toString()
+                    tvData.text = "$dayOfWeek, $hourMinute"
+                    tvDescricao.text = current.getCode()
+                    tvCidade.text = cidade
+                    tvHumidade.text = "${current.getHumidade()}%"
+                    tvPrecipitacao.text = "${current.getPrecipitacao()}%"
+                    tvVento.text = current.getVento().toString()
 
-            ivClima.setImageDrawable(ForecastDataParser.getWeatherDrawable(this, current.getCodeInt(), current.isDia()))
+                    ivClima.setImageDrawable(
+                        ForecastDataParser.getWeatherDrawable(this@MainActivity, current.getCodeInt(), current.isDia())
+                    )
+                }
+            }
         }
     }
 }

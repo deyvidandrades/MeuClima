@@ -24,6 +24,7 @@
             android:textAlignment="center"
             android:textColor="?android:textColorPrimaryInverse"
             android:textSize="12sp"
+            android:visibility="gone"
             app:drawableTint="?android:colorAccent"
             app:drawableTopCompat="@drawable/round_info_outline_24" />
 

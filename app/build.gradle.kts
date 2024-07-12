@@ -11,8 +11,8 @@ android {
         applicationId = "com.deyvidandrades.meuclima"
         minSdk = 31
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.1.3"
+        versionCode = 5
+        versionName = "1.1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -46,7 +46,7 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
 
     //Outras bibliotecas
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.google.android.play:review:2.0.1")
     implementation("com.google.android.play:review-ktx:2.0.1")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
@@ -54,6 +54,6 @@ dependencies {
 
     //Test libraries
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }

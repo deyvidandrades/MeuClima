@@ -31,9 +31,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.materialswitch.MaterialSwitch
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -195,24 +193,18 @@ class MainActivity : AppCompatActivity() {
         NotificacoesUtil.criarCanalDeNotificacoes(this)
     }
 
-    @Suppress("DEPRECATION")
-    @SuppressLint("SetTextI18n")
     private fun atualizarUI(latitude: Double, longitude: Double) {
         reLoading.visibility = View.VISIBLE
         val geocoder = Geocoder(this, Locale.getDefault())
-        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
+        geocoder.getFromLocation(latitude, longitude, 1) { addresses ->
+            var cidade = ""
+            if (addresses.isNotEmpty() && addresses[0].subAdminArea != null)
+                cidade = addresses[0].subAdminArea
 
-        var cidade = ""
-        if (!addresses.isNullOrEmpty() && addresses[0].subAdminArea != null)
-            cidade = addresses[0].subAdminArea
+            var result: String
+            lifecycleScope.launch {
+                result = RequestManager.fazerRequisicao(ForecastDataParser.getApiUrl(latitude, longitude))
 
-        var result: String
-        lifecycleScope.launch(Dispatchers.IO) {
-            //runBlocking {
-            result =
-                RequestManager.fazerRequisicao(ForecastDataParser.getApiUrl(latitude, longitude))
-
-            withContext(Dispatchers.Main) {
                 ForecastDataParser.getForecast(result) { current, hourly, week ->
                     arrayHorasDia = hourly
                     arrayProximosDias = week
@@ -223,11 +215,11 @@ class MainActivity : AppCompatActivity() {
                     val hourMinute = SimpleDateFormat("HH:mm", Locale.getDefault()).format(calendar.time)
 
                     tvTemperatura.text = current.getTemperatura().toString()
-                    tvData.text = "$dayOfWeek, $hourMinute"
-                    tvDescricao.text = current.getCode()
+                    tvData.text = getString(R.string.data_formatada, dayOfWeek, hourMinute)
+                    tvDescricao.text = ForecastDataParser.getCode(this@MainActivity, current.getCodeInt())
                     tvCidade.text = cidade
-                    tvHumidade.text = "${current.getHumidade()}%"
-                    tvPrecipitacao.text = "${current.getPrecipitacao()}%"
+                    tvHumidade.text = getString(R.string.humidade_formatada, current.getHumidade())
+                    tvPrecipitacao.text = getString(R.string.precipitacao_formatada, current.getPrecipitacao())
                     tvVento.text = current.getVento().toString()
 
                     ivClima.setImageDrawable(

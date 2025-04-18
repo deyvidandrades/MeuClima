@@ -18,34 +18,34 @@ object ForecastDataParser {
 
     fun getAlertCodes() = arrayListOf(65, 66, 67, 75, 82, 86, 95, 96, 99)
 
-    fun getCode(code: Int): String {
+    fun getCode(context: Context, code: Int): String {
         return when (code) {
-            0 -> "Céu limpo"
-            1 -> "Algumas nuvens"
-            2 -> "Parcialmente nublado"
-            3 -> "Nublado"
-            45 -> "Nevoeiro"
-            48 -> "Nevoeiro com gelo"
-            51 -> "Chuvisco leve"
-            53 -> "Chuvisco moderado"
-            55 -> "Chuvisco forte"
-            56, 57 -> "Chuvisco congelante"
-            61 -> "Chuva leve"
-            63 -> "Chuva moderada"
-            65 -> "Chuva forte"
-            66, 67 -> "Chuva congelante"
-            71 -> "Nevando fraco"
-            73 -> "Nevando"
-            75 -> "Nevando muito"
-            77 -> "Grãos de neve"
-            80 -> "Pancadas de chuva leve"
-            81 -> "Pancada de chuva"
-            82 -> "Pancada de chuva forte"
-            85 -> "Nevasca"
-            86 -> "Nevasca forte"
-            95 -> "Tempestade"
-            96, 99 -> "Tempestade de granizo"
-            else -> "Condição meteorológica desconhecida"
+            0 -> context.getString(R.string.ceu_limpo)
+            1 -> context.getString(R.string.algumas_nuvens)
+            2 -> context.getString(R.string.parcialmente_nublado)
+            3 -> context.getString(R.string.nublado)
+            45 -> context.getString(R.string.nevoeiro)
+            48 -> context.getString(R.string.nevoeiro_com_gelo)
+            51 -> context.getString(R.string.chuvisco_leve)
+            53 -> context.getString(R.string.chuvisco_moderado)
+            55 -> context.getString(R.string.chuvisco_forte)
+            56, 57 -> context.getString(R.string.chuvisco_congelante)
+            61 -> context.getString(R.string.chuva_leve)
+            63 -> context.getString(R.string.chuva_moderada)
+            65 -> context.getString(R.string.chuva_forte)
+            66, 67 -> context.getString(R.string.chuva_congelante)
+            71 -> context.getString(R.string.nevando_fraco)
+            73 -> context.getString(R.string.nevando)
+            75 -> context.getString(R.string.nevando_muito)
+            77 -> context.getString(R.string.graos_de_neve)
+            80 -> context.getString(R.string.pancadas_de_chuva_leve)
+            81 -> context.getString(R.string.pancada_de_chuva)
+            82 -> context.getString(R.string.pancada_de_chuva_forte)
+            85 -> context.getString(R.string.nevasca)
+            86 -> context.getString(R.string.nevasca_forte)
+            95 -> context.getString(R.string.tempestade)
+            96, 99 -> context.getString(R.string.tempestade_de_granizo)
+            else -> context.getString(R.string.condicao_meteorologica_desconhecida)
         }
     }
 

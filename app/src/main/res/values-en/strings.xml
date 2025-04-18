@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Weather</string>
+    <string name="notificacao_do_clima">Weather notification</string>
+    <string name="vento">Wind (Km/h)</string>
+    <string name="humidade">Humidity</string>
+    <string name="precipitacao">Precipitation</string>
+    <string name="imagem_que_representa_o_clima_atual">Image representing the current weather</string>
+    <string name="notificacoes">Notifications</string>
+    <string name="voce_recebera_uma_notificacao">When the notifications are active, you will receive weather alerts during the day.</string>
+    <string name="salvar_e_fechar">Save and close</string>
+    <string name="termos_e_condi_es">Terms and Conditions</string>
+    <string name="as_previsoes_do_tempo_sao_uma_estimativa">The climate conditions may be different from the forecast</string>
+    <string name="veja_a_previsao_completa">See the complete forecast</string>
+    <string name="fechar">Close</string>
+    <string name="previsao_para_7_dias">Forecast for the next 7 days</string>
+    <string name="previsao_do_tempo_de_hora_em_hora">Hourly forecast</string>
+    <string name="alerta_de">Alert of %1$s</string>
+    <string name="esperada_s_horas">%1$s predicted for %2$s hours!</string>
+    <string name="carregando">Loading</string>
+    <string name="ceu_limpo">Clean sky</string>
+    <string name="algumas_nuvens">Some clouds</string>
+    <string name="parcialmente_nublado">Cloudy</string>
+    <string name="nublado">Overcast</string>
+    <string name="nevoeiro">Fog</string>
+    <string name="condicao_meteorologica_desconhecida">Unknown meteriological condition</string>
+    <string name="tempestade_de_granizo">Hailstorm</string>
+    <string name="tempestade">Storm</string>
+    <string name="nevasca_forte">Heavy Snowstorm</string>
+    <string name="nevasca">Snowstorm</string>
+    <string name="pancada_de_chuva_forte">Heavy rainshower</string>
+    <string name="pancada_de_chuva">rainshower</string>
+    <string name="pancadas_de_chuva_leve">light rainshower</string>
+    <string name="graos_de_neve">Snowflakes</string>
+    <string name="nevando_muito">Heavy snowstorm</string>
+    <string name="nevando">snowstorm</string>
+    <string name="nevando_fraco">Light snowstorm</string>
+    <string name="chuva_congelante">Freezing rain</string>
+    <string name="chuva_forte">Heavy rain</string>
+    <string name="chuva_moderada">Rain</string>
+    <string name="chuva_leve">Light rain</string>
+    <string name="chuvisco_congelante">Freezing drizzle</string>
+    <string name="chuvisco_forte">Heavy drizzle</string>
+    <string name="chuvisco_moderado">Drizzle</string>
+    <string name="chuvisco_leve">Light drizzle</string>
+    <string name="nevoeiro_com_gelo">Freezing fog</string>
+</resources>

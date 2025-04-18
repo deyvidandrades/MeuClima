@@ -4,7 +4,7 @@
     <string name="vento">Vento (Km/h)</string>
     <string name="humidade">Humidade</string>
     <string name="precipitacao">Precipitação</string>
-    <string name="c">ºc</string>
+    <string name="c" translatable="false">ºc</string>
     <string name="imagem_que_representa_o_clima_atual">Imagem que representa o clima atual</string>
     <string name="notificacoes">Notificações</string>
     <string name="voce_recebera_uma_notificacao">Quando as notificações estão ativas, você receberá a previsão do tempo e alertas climáticos durante o dia.</string>
@@ -13,9 +13,39 @@
     <string name="as_previsoes_do_tempo_sao_uma_estimativa">As condições climáticas podem ser diferentes das previstas.</string>
     <string name="veja_a_previsao_completa">Veja a previsão completa</string>
     <string name="fechar">Fechar</string>
-    <string name="open_meteo_api">Open Meteo API</string>
+    <string name="open_meteo_api" translatable="false">Open Meteo API</string>
     <string name="previsao_para_7_dias">Previsão para 7 dias</string>
     <string name="previsao_do_tempo_de_hora_em_hora">Previsão do tempo de hora em hora</string>
     <string name="alerta_de">Alerta de %1$s</string>
     <string name="esperada_s_horas">%1$s esperada às %2$s horas!</string>
+    <string name="data_formatada" translatable="false">%1$s, %2$s</string>
+    <string name="humidade_formatada" translatable="false">%1$d%%</string>
+    <string name="precipitacao_formatada" translatable="false">%1$d%%</string>
+    <string name="carregando">Carregando</string>
+    <string name="ceu_limpo">Céu limpo</string>
+    <string name="algumas_nuvens">Algumas nuvens</string>
+    <string name="parcialmente_nublado">Parcialmente nublado</string>
+    <string name="nublado">Nublado</string>
+    <string name="nevoeiro">Nevoeiro</string>
+    <string name="condicao_meteorologica_desconhecida">Condição meteorológica desconhecida</string>
+    <string name="tempestade_de_granizo">Tempestade de granizo</string>
+    <string name="tempestade">Tempestade</string>
+    <string name="nevasca_forte">Nevasca forte</string>
+    <string name="nevasca">Nevasca</string>
+    <string name="pancada_de_chuva_forte">Pancada de chuva forte</string>
+    <string name="pancada_de_chuva">Pancada de chuva</string>
+    <string name="pancadas_de_chuva_leve">Pancadas de chuva leve</string>
+    <string name="graos_de_neve">Grãos de neve</string>
+    <string name="nevando_muito">Nevando muito</string>
+    <string name="nevando">Nevando</string>
+    <string name="nevando_fraco">Nevando fraco</string>
+    <string name="chuva_congelante">Chuva congelante</string>
+    <string name="chuva_forte">Chuva forte</string>
+    <string name="chuva_moderada">Chuva moderada</string>
+    <string name="chuva_leve">Chuva leve</string>
+    <string name="chuvisco_congelante">Chuvisco congelante</string>
+    <string name="chuvisco_forte">Chuvisco forte</string>
+    <string name="chuvisco_moderado">Chuvisco moderado</string>
+    <string name="chuvisco_leve">Chuvisco leve</string>
+    <string name="nevoeiro_com_gelo">Nevoeiro com gelo</string>
 </resources>

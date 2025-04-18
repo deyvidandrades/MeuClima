@@ -1,7 +1,5 @@
 package com.deyvidandrades.meuclima.objetos
 
-import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
-
 data class ForecastCurrent(
     private val data: Long,
     private val temperatura: Int,
@@ -29,8 +27,5 @@ data class ForecastCurrent(
 
     fun isDia() = isDia
 
-    fun getCode() = ForecastDataParser.getCode(code)
-
     fun getCodeInt() = code
-
 }

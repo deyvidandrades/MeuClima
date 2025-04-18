@@ -1,6 +1,5 @@
 package com.deyvidandrades.meuclima.dialogos
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,6 @@ class DialogoForecast : BottomSheetDialogFragment() {
     var arrayDailyForecast = ArrayList<ForecastDaily>()
     var arrayHourlyForecast = ArrayList<ForecastHourly>()
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val dialogoView = inflater.inflate(R.layout.dialogo_forecast, container, false)
 
@@ -27,13 +25,11 @@ class DialogoForecast : BottomSheetDialogFragment() {
 
         //Recycler Daily
         val recyclerDaily: RecyclerView = dialogoView.findViewById(R.id.recycler_daily)
-        recyclerDaily.setHasFixedSize(true)
         recyclerDaily.adapter = AdaptadorForecastDaily(requireContext(), arrayDailyForecast)
         recyclerDaily.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         //Recycler Hourly
         val recyclerHourly: RecyclerView = dialogoView.findViewById(R.id.recycler_hourly)
-        recyclerHourly.setHasFixedSize(true)
         recyclerHourly.adapter = AdaptadorForecastHourly(requireContext(), arrayHourlyForecast)
         recyclerHourly.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 

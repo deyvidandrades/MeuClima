@@ -25,10 +25,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:name=".servicos.NotificacoesWorker"
-            android:enabled="true" />
-
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

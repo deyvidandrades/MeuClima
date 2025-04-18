@@ -38,7 +38,6 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private var localizacao: Pair<Double, Double>? = null
 
     private var arrayHorasDia = ArrayList<ForecastHourly>()
     private var arrayProximosDias = ArrayList<ForecastDaily>()
@@ -194,8 +193,6 @@ class MainActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     @SuppressLint("SetTextI18n")
     private fun atualizarUI(latitude: Double, longitude: Double) {
-        localizacao = Pair(latitude, longitude)
-
         val geocoder = Geocoder(this, Locale.getDefault())
         val addresses = geocoder.getFromLocation(latitude, longitude, 1)
 

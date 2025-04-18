@@ -3,7 +3,6 @@ package com.deyvidandrades.meuclima.dialogos
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +15,7 @@ import com.deyvidandrades.meuclima.assistentes.Persistencia
 import com.deyvidandrades.meuclima.assistentes.WorkManagerUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.materialswitch.MaterialSwitch
+import androidx.core.net.toUri
 
 class DialogoConfiguracoes : BottomSheetDialogFragment() {
 
@@ -45,12 +45,12 @@ class DialogoConfiguracoes : BottomSheetDialogFragment() {
 
         tvTermos.setOnClickListener {
             AnimacaoBotao.animar(it)
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://deyvidandrades.github.io/MeuClima/termos/")))
+            startActivity(Intent(Intent.ACTION_VIEW, "https://deyvidandrades.github.io/MeuClima/termos/".toUri()))
         }
 
         tvApi.setOnClickListener {
             AnimacaoBotao.animar(it)
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://open-meteo.com/")))
+            startActivity(Intent(Intent.ACTION_VIEW, "https://open-meteo.com/".toUri()))
         }
 
         val info =

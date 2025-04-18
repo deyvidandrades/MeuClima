@@ -15,10 +15,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class AdaptadorForecastHourly(context: Context, arrayList: ArrayList<ForecastHourly>) :
+class AdaptadorForecastHourly(private val context: Context, arrayList: ArrayList<ForecastHourly>) :
     RecyclerView.Adapter<AdaptadorForecastHourly.ViewHolder>() {
 
-    private val context: Context
     private var arrayList: ArrayList<ForecastHourly> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,21 +49,13 @@ class AdaptadorForecastHourly(context: Context, arrayList: ArrayList<ForecastHou
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvTemperatura: TextView
-        var tvData: TextView
-        var ivClima: ImageView
-        var separador: View
-
-        init {
-            tvTemperatura = itemView.findViewById(R.id.tv_temperatura)
-            tvData = itemView.findViewById(R.id.tv_data)
-            ivClima = itemView.findViewById(R.id.iv_clima)
-            separador = itemView.findViewById(R.id.separador)
-        }
+        var tvTemperatura: TextView = itemView.findViewById(R.id.tv_temperatura)
+        var tvData: TextView = itemView.findViewById(R.id.tv_data)
+        var ivClima: ImageView = itemView.findViewById(R.id.iv_clima)
+        var separador: View = itemView.findViewById(R.id.separador)
     }
 
     init {
-        this.context = context
         this.arrayList = arrayList
     }
 }

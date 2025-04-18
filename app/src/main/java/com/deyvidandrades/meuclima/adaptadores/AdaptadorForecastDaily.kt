@@ -15,10 +15,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class AdaptadorForecastDaily(context: Context, arrayList: ArrayList<ForecastDaily>) :
+class AdaptadorForecastDaily(private val context: Context, arrayList: ArrayList<ForecastDaily>) :
     RecyclerView.Adapter<AdaptadorForecastDaily.ViewHolder>() {
 
-    private val context: Context
     private var arrayList: ArrayList<ForecastDaily> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,25 +46,15 @@ class AdaptadorForecastDaily(context: Context, arrayList: ArrayList<ForecastDail
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvData: TextView
-        var tvTemperaturaMax: TextView
-        var tvTemperaturaMin: TextView
-        var tvDia: TextView
-        var ivClima: ImageView
-        var separador: View
-
-        init {
-            tvData = itemView.findViewById(R.id.tv_data)
-            tvTemperaturaMax = itemView.findViewById(R.id.tv_temperatura_max)
-            tvDia = itemView.findViewById(R.id.tv_dia)
-            tvTemperaturaMin = itemView.findViewById(R.id.tv_temperatura_min)
-            ivClima = itemView.findViewById(R.id.iv_clima)
-            separador = itemView.findViewById(R.id.separador)
-        }
+        var tvData: TextView = itemView.findViewById(R.id.tv_data)
+        var tvTemperaturaMax: TextView = itemView.findViewById(R.id.tv_temperatura_max)
+        var tvTemperaturaMin: TextView = itemView.findViewById(R.id.tv_temperatura_min)
+        var tvDia: TextView = itemView.findViewById(R.id.tv_dia)
+        var ivClima: ImageView = itemView.findViewById(R.id.iv_clima)
+        var separador: View = itemView.findViewById(R.id.separador)
     }
 
     init {
-        this.context = context
         this.arrayList = arrayList
     }
 }

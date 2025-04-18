@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.deyvidandrades.meuclima.objetos
 
 data class ForecastCurrent(

@@ -9,13 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.net.toUri
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.assistentes.AnimacaoBotao
 import com.deyvidandrades.meuclima.assistentes.Persistencia
 import com.deyvidandrades.meuclima.assistentes.WorkManagerUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.materialswitch.MaterialSwitch
-import androidx.core.net.toUri
 
 class DialogoConfiguracoes : BottomSheetDialogFragment() {
 

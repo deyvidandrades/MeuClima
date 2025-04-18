@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection", "SpellCheckingInspection")
+
 package com.deyvidandrades.meuclima
 
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -26,7 +26,9 @@ class NotificacoesWorker(appContext: Context, workerParams: WorkerParameters) :
             ForecastDataParser.getForecast(result) { current, hourly, _ ->
                 NotificacoesUtil.enviarNotificacao(
                     applicationContext,
-                    "${current.getCodeInt()}, ${current.getTemperatura()}º",
+                    "${
+                        ForecastDataParser.getCode(applicationContext, current.getCodeInt())
+                    }, ${current.getTemperatura()}º",
                     applicationContext.getString(R.string.veja_a_previsao_completa),
                     ForecastDataParser.getWeatherDrawable(applicationContext, current.getCodeInt(), current.isDia()),
                     NotificacoesUtil.Tipo.PREVISAO

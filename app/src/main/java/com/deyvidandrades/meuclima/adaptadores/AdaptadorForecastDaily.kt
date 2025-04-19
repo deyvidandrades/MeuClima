@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
@@ -37,6 +39,10 @@ class AdaptadorForecastDaily(private val context: Context, arrayList: ArrayList<
 
         holder.tvData.text = SimpleDateFormat("dd/MM", Locale.getDefault()).format(Date(item.getData()))
         holder.tvDia.text = SimpleDateFormat("EE", Locale.getDefault()).format(Date(item.getData()))
+
+        holder.liInfoHolder.setOnClickListener {
+            Toast.makeText(context, ForecastDataParser.getCode(context, item.getCodeInt()), Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -50,6 +56,8 @@ class AdaptadorForecastDaily(private val context: Context, arrayList: ArrayList<
         var tvDia: TextView = itemView.findViewById(R.id.tv_dia)
         var ivClima: ImageView = itemView.findViewById(R.id.iv_clima)
         var separador: View = itemView.findViewById(R.id.separador)
+
+        var liInfoHolder: LinearLayout = itemView.findViewById(R.id.li_info_holder)
     }
 
     init {

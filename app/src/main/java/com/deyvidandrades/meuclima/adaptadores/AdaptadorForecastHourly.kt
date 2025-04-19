@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.deyvidandrades.meuclima.R
 import com.deyvidandrades.meuclima.assistentes.ForecastDataParser
@@ -40,6 +42,10 @@ class AdaptadorForecastHourly(private val context: Context, arrayList: ArrayList
         val currentTimeFormatted = dateFormat.format(Date(currentTime))
 
         holder.tvData.text = if (time == currentTimeFormatted) "Agora" else time
+
+        holder.liInfoHolder.setOnClickListener {
+            Toast.makeText(context, ForecastDataParser.getCode(context, item.getCodeInt()), Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -51,6 +57,8 @@ class AdaptadorForecastHourly(private val context: Context, arrayList: ArrayList
         var tvData: TextView = itemView.findViewById(R.id.tv_data)
         var ivClima: ImageView = itemView.findViewById(R.id.iv_clima)
         var separador: View = itemView.findViewById(R.id.separador)
+
+        var liInfoHolder: LinearLayout = itemView.findViewById(R.id.li_info_holder)
     }
 
     init {

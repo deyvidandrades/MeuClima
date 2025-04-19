@@ -1,6 +1,5 @@
 package com.deyvidandrades.meuclima.adaptadores
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -26,13 +25,12 @@ class AdaptadorForecastHourly(private val context: Context, arrayList: ArrayList
         return ViewHolder(view)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = arrayList[position]
 
         holder.separador.visibility = if (position == 0) View.GONE else View.VISIBLE
 
-        holder.tvTemperatura.text = "${item.getTemperatura()}º"
+        holder.tvTemperatura.text = context.getString(R.string.temperatura_formatada, item.getTemperatura())
         holder.ivClima.setImageDrawable(ForecastDataParser.getWeatherDrawable(context, item.getCodeInt(), item.isDay()))
 
         val dateFormat = SimpleDateFormat("HH", Locale.getDefault())

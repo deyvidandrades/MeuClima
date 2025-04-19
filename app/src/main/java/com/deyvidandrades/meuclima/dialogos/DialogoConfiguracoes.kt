@@ -19,7 +19,6 @@ import com.google.android.material.materialswitch.MaterialSwitch
 
 class DialogoConfiguracoes : BottomSheetDialogFragment() {
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val dialogoView = inflater.inflate(R.layout.dialogo_configuracoes, container, false)
 
@@ -56,7 +55,8 @@ class DialogoConfiguracoes : BottomSheetDialogFragment() {
         val info =
             requireContext().packageManager.getPackageInfo(requireContext().packageName, PackageManager.GET_ACTIVITIES)
 
-        tvVersao.text = "${requireContext().getString(R.string.app_name)} v${info.versionName}"
+        tvVersao.text =
+            getString(R.string.versao_formatada, requireContext().getString(R.string.app_name), info.versionName)
 
         return dialogoView
     }

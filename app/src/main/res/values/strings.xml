@@ -48,4 +48,6 @@
     <string name="chuvisco_moderado">Chuvisco moderado</string>
     <string name="chuvisco_leve">Chuvisco leve</string>
     <string name="nevoeiro_com_gelo">Nevoeiro com gelo</string>
+    <string name="temperatura_formatada" translatable="false">%1$dº</string>
+    <string name="versao_formatada" translatable="false">%1$s v%2$s</string>
 </resources>
